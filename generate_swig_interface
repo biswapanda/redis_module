@@ -1,0 +1,3 @@
+swig -python  mod.i
+gcc -dynamic -fno-common -std=gnu99 -c `python2.7-config --cflags` mod_wrap.c -o mod_wrap.o
+ld -o _redismodule.so mod_wrap.o -bundle -undefined dynamic_lookup -lc `python2.7-config --ldflags`
